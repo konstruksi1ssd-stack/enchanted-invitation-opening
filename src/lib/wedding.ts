@@ -6,7 +6,11 @@ export const WEDDING = {
   groom: "Lukman",
   brideFull: "Salsabila Nur Azzahra",
   groomFull: "Muhammad Lukman Hakim",
-  /** Individual portraits — replace the asset files to swap in the real photos. */
+  /**
+   * Bride & groom portraits shown in the "Mempelai Kami" section (portrait 4:5 works best).
+   * The current files are sample stand-ins: replace the asset files to swap in the real photos,
+   * or set a value to "" to show the empty gold placeholder frame instead.
+   */
   photos: { bride: bridePhoto.url, groom: groomPhoto.url },
   brideParents: "Putri dari Bapak Ahmad & Ibu Siti",
   groomParents: "Putra dari Bapak Hasan & Ibu Aminah",
