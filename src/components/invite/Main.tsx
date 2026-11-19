@@ -68,6 +68,44 @@ function Heading({ kicker, children }: { kicker?: string; children: ReactNode })
 
 const Hairline = ({ className = "" }: { className?: string }) => <div className={`mx-auto h-px w-16 bg-royal-gold/50 ${className}`} />;
 
+/* Fine-line gold filigree corner for the hero (replaces the old baroque leaf corner). */
+function FiligreeCorner({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 160 160" fill="none" aria-hidden="true" className={className}>
+      <defs>
+        <linearGradient id="filigree-gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#F3E5AB" />
+          <stop offset="0.5" stopColor="#D4AF37" />
+          <stop offset="1" stopColor="#A8832A" />
+        </linearGradient>
+      </defs>
+      <g stroke="url(#filigree-gold)" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 150 V40 Q14 14 40 14 H150" strokeWidth="1.2" />
+        <path d="M22 132 V46 Q22 22 46 22 H132" strokeWidth="0.6" opacity="0.7" />
+        <path d="M30 96 C30 58 58 30 96 30" strokeWidth="1" />
+        <path d="M96 30 C112 30 120 40 114 50 C109 58 98 54 101 46" strokeWidth="0.9" />
+        <path d="M30 96 C30 112 40 120 50 114 C58 109 54 98 46 101" strokeWidth="0.9" />
+        <path d="M40 40 C52 56 62 62 78 66" strokeWidth="0.8" />
+        <path d="M40 40 C56 52 62 62 66 78" strokeWidth="0.8" />
+        <path d="M60 48 Q70 40 78 46 Q70 52 60 48 Z" strokeWidth="0.7" />
+        <path d="M48 60 Q40 70 46 78 Q52 70 48 60 Z" strokeWidth="0.7" />
+        <path d="M120 22 Q132 16 142 22" strokeWidth="0.6" />
+        <path d="M22 120 Q16 132 22 142" strokeWidth="0.6" />
+      </g>
+      <g fill="url(#filigree-gold)">
+        <path d="M34 26 L38 34 L34 42 L30 34 Z" transform="rotate(-45 34 34)" />
+        <circle cx="150" cy="14" r="1.8" />
+        <circle cx="14" cy="150" r="1.8" />
+        <circle cx="101" cy="46" r="1.4" />
+        <circle cx="46" cy="101" r="1.4" />
+        <circle cx="82" cy="82" r="1.6" />
+        <circle cx="142" cy="22" r="1.1" />
+        <circle cx="22" cy="142" r="1.1" />
+      </g>
+    </svg>
+  );
+}
+
 /* ---------------------------------- hero ---------------------------------- */
 
 function Hero({ guest }: { guest: string }) {
@@ -81,8 +119,8 @@ function Hero({ guest }: { guest: string }) {
       {/* double gold frame */}
       <div className="pointer-events-none absolute inset-3 rounded-[1.75rem] border border-royal-gold/55 sm:inset-6" />
       <div className="pointer-events-none absolute inset-[20px] rounded-[1.4rem] border border-royal-gold/20 sm:inset-[34px]" />
-      <img src={floral.url} alt="" className="pointer-events-none absolute left-2 top-2 w-24 opacity-90 sm:left-4 sm:top-4 sm:w-36" />
-      <img src={floral.url} alt="" className="pointer-events-none absolute right-2 top-2 w-24 -scale-x-100 opacity-90 sm:right-4 sm:top-4 sm:w-36" />
+      <FiligreeCorner className="pointer-events-none absolute left-2 top-2 w-24 opacity-90 sm:left-4 sm:top-4 sm:w-36" />
+      <FiligreeCorner className="pointer-events-none absolute right-2 top-2 w-24 -scale-x-100 opacity-90 sm:right-4 sm:top-4 sm:w-36" />
       <img src={botanical.url} alt="" className="sway pointer-events-none absolute -bottom-2 -left-4 w-40 opacity-90 sm:w-64" />
       <img src={botanical.url} alt="" className="sway pointer-events-none absolute -bottom-2 -right-4 w-40 opacity-90 sm:w-64" style={{ ["--orn-flip" as string]: "scaleX(-1)" }} />
 
